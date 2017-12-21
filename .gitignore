@@ -100,3 +100,4 @@ ENV/
 /.env
 secret*
 environments
+.idea
