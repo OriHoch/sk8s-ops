@@ -1,4 +1,4 @@
-{{ if .Values.enabled }}{{ if .Values.image }}
+{{ if .Values.enabled }}
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -14,7 +14,7 @@ spec:
         cloud.google.com/gke-nodepool: {{ .Values.global.defaultNodePool | quote }}
       containers:
       - name: ops
-        image: {{ .Values.image | quote }}
+        image: {{ .Values.image | default "orihoch/sk8s-ops@sha256:6c368f75207229c8bb2ccb99bd6414dfb21289c5c988d2381a9da2015f55bd38" | quote }}
         resources:
           requests:
             cpu: {{ .Values.cpuRequests | default "0.001" | quote }}
@@ -38,4 +38,4 @@ spec:
         secret:
           secretName: {{ .Values.secret | quote }}
       {{ end }}
-{{ end }}{{ end }}
+{{ end }}

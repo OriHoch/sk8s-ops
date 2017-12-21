@@ -29,11 +29,11 @@ Check the script parameters and code for more run options
 
 ## Secrets
 
-Assuming you have the key file at `environments/${K8S_ENVIRONMENT_NAME}/secret-k8s-ops.json`:
+Assuming you have the key file at `secret-k8s-ops.json`:
 
 ```
 ! kubectl describe secret ops &&\
-  kubectl create secret generic ops "--from-file=secret.json=environments/${K8S_ENVIRONMENT_NAME}/secret-k8s-ops.json"
+  kubectl create secret generic ops "--from-file=secret.json=secret-k8s-ops.json.json"
 ```
 
 Set in values
@@ -46,7 +46,7 @@ ops:
 
 ## Build and publish the docker ops image
 
-If you don't require additional dependencies you can use `orihoch/sk8s` image on public docker hub, in this case skip to set in values below.
+If you don't require additional dependencies you can use `orihoch/sk8s-ops` image on public docker hub, in this case skip to set in values below.
 
 Otherwise, you should build the ops image and publish yourself.
 

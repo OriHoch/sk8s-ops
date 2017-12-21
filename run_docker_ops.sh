@@ -23,7 +23,7 @@ echo "DOCKER_RUN_PARAMS=${DOCKER_RUN_PARAMS}"
 [ -z "${OPS_REPO_SLUG}" ] && usage && exit 1
 
 [ -z "${SCRIPT}" ] && SCRIPT="bash"
-[ -z "${OPS_DOCKER_IMAGE}" ] && OPS_DOCKER_IMAGE="orihoch/sk8s@sha256:5660a773e64b6ec495f4f5f62211bd85ceb3452e9372f8a7a270c112804b03f3" \
+[ -z "${OPS_DOCKER_IMAGE}" ] && OPS_DOCKER_IMAGE="orihoch/sk8s-ops@sha256:6c368f75207229c8bb2ccb99bd6414dfb21289c5c988d2381a9da2015f55bd38" \
                              && echo "OPS_DOCKER_IMAGE=${OPS_DOCKER_IMAGE}"
 [ -z "${OPS_REPO_BRANCH}" ] && OPS_REPO_BRANCH="master" \
                             && echo "OPS_REPO_BRANCH=${OPS_REPO_BRANCH}"
