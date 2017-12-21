@@ -15,6 +15,15 @@ spec:
       containers:
       - name: ops
         image: {{ .Values.image | default "orihoch/sk8s-ops@sha256:6c368f75207229c8bb2ccb99bd6414dfb21289c5c988d2381a9da2015f55bd38" | quote }}
+        env:
+        {{ if .Values.OPS_REPO_BRANCH }}
+        - name: OPS_REPO_BRANCH
+          value: {{ .Values.OPS_REPO_BRANCH | quote }}
+        {{ end }}
+        {{ if .Values.OPS_REPO_SLUG }}
+        - name: OPS_REPO_SLUG
+          value: {{ .Values.OPS_REPO_SLUG | quote }}
+        {{ end }}
         resources:
           requests:
             cpu: {{ .Values.cpuRequests | default "0.001" | quote }}
