@@ -1,5 +1,14 @@
 # Ops
 
+Interact with Kubernetes / Google Cloud environments from CI / automation scripts. Integrates with [sk8s](https://github.com/OriHoch/sk8s)
+
+## Running the ops image directly
+
+```
+```
+
+
+
 ## Using the run_docker_ops.sh script
 
 This script allows to interact with a sk8s environment from CI / automation scripts
