@@ -66,7 +66,7 @@ Assuming you have the key file at `secret-k8s-ops.json`:
 
 ```
 ! kubectl describe secret ops &&\
-  kubectl create secret generic ops "--from-file=secret.json=secret-k8s-ops.json.json"
+  kubectl create secret generic ops "--from-file=secret.json=secret-k8s-ops.json"
 ```
 
 Set in values
