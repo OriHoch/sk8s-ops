@@ -2,35 +2,59 @@
 
 Interact with Kubernetes / Google Cloud environments from CI / automation scripts. Integrates with [sk8s](https://github.com/OriHoch/sk8s)
 
+
 ## Running the ops image directly
 
+Start a bash terminal
+
 ```
+docker run -it orihoch/sk8sops
 ```
 
+
+## Authenticating with gcloud
+
+You need a service account json key, see below on how to create one
+
+Assuming you have the key file at `secret-k8s-ops.json`:
+
+```
+docker run -v "`readlink -f ./secret-k8s-ops.json`:/k8s-ops/secret.json" \
+           -it orihoch/sk8sops
+```
+
+
+## Cloning an ops repo
+
+The image can clone an ops repo containing your project's helm / configuration files / scripts
+
+```
+docker run -v "`readlink -f ./secret-k8s-ops.json`:/k8s-ops/secret.json" \
+           -e "OPS_REPO_SLUG=OriHoch/sk8s" \
+           -it orihoch/sk8sops
+```
+
+You can specify `OPS_REPO_BRANCH` as well, it defaults to `master`
 
 
 ## Using the run_docker_ops.sh script
 
-This script allows to interact with a sk8s environment from CI / automation scripts
+You can use the `run_docker_ops.sh` script to more tightly integrate with [sk8s](https://github.com/OriHoch/sk8s) compatible repos and to support running from CI tools.
 
 There are 2 requirements to running the script:
 
 * a Google Cloud service account key which should be available at current working directory under `secret-k8s-ops.json`. See below on how to create it.
 * a sk8s repository at a GitHub public repo (for example https://github.com/Midburn/midburn-k8s`)
 
-Running locally
-
 ```
-cd sk8s-ops
-docker build -t sk8s-ops .
-./run_docker_ops.sh "<ENVIRONMENT_NAME>" "" "sk8s-ops" "<SK8S_REPO_SLUG>"
+./run_docker_ops.sh "<ENVIRONMENT_NAME>" "" "orihoch/sk8sops" "<SK8S_REPO_SLUG>"
 ```
 
 You can run the script from external repositories / tools by downloading it and running directly
 
 ```
 wget https://raw.githubusercontent.com/OriHoch/sk8s/master/run_docker_ops.sh && chmod +x run_docker_ops.sh
-./run_docker_ops.sh "staging" "kubectl get pods" <OPS_DOCKER_IMAGE> <SK8S_REPO_SLUG>
+./run_docker_ops.sh "staging" "kubectl get pods" "orihoch/sk8sops" <SK8S_REPO_SLUG>
 ```
 
 Check the script parameters and code for more run options
