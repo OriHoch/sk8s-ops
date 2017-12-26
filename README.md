@@ -2,6 +2,12 @@
 
 Interact with Kubernetes / Google Cloud environments from CI / automation scripts. Integrates with [sk8s](https://github.com/OriHoch/sk8s)
 
+Available on docker hub in the following variants:
+
+* `orihoch/sk8s-ops`
+* `orihoch/sk8s-ops:mongo`
+* `orihoch/sk8s-ops:mysql`
+
 
 ## Running the ops image directly
 
@@ -74,6 +80,30 @@ Set in values
 ```
 ops:
   secret: ops
+```
+
+Use in pod specs
+
+```
+containers:
+- name: ops
+  image: orihoch/sk8sops
+  resources:
+    requests:
+      cpu: "0.001"
+      memory: "10Mi"
+  command:
+  - bash
+  - "-c"
+  - "while true; do sleep 86400; done"
+  volumeMounts:
+  - name: k8s-ops
+    mountPath: /k8s-ops
+    readOnly: true
+volumes:
+- name: k8s-ops
+  secret:
+    secretName: ops
 ```
 
 
