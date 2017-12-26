@@ -1,6 +1,6 @@
 FROM google/cloud-sdk:alpine
 
-RUN apk --update --no-cache add bash jq py2-pip openssl curl git \
+RUN apk --update --no-cache add bash jq py2-pip openssl curl git mysql-client \
     && pip install --upgrade pip \
     && pip install python-dotenv pyyaml \
     && gcloud --quiet components install kubectl \
