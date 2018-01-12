@@ -1,4 +1,4 @@
-# Ops
+# Sk8s Ops
 
 Interact with Kubernetes / Google Cloud environments from CI / automation scripts. Integrates with [sk8s](https://github.com/OriHoch/sk8s)
 
