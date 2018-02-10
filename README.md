@@ -7,6 +7,7 @@ Available on docker hub in the following variants:
 * `orihoch/sk8s-ops` - contains `gcloud`, `kubectl`, `gsutil`, `helm`
 * `orihoch/sk8s-ops:mongo` - with mongo related CLI tools
 * `orihoch/sk8s-ops:mysql` - with mysql related CLI tools
+* `orihoch/sk8s-ops:postgresql` - with Postgresql tools
 
 The following images based on this image may also be useful:
 * `orihoch/sk8sops:pipelines-google-storage-sync` - sync of data to / from google storage, see [sk8s-pipelines/google-storage-sync/README.md](https://github.com/OriHoch/sk8s-pipelines/blob/master/google-storage-sync/README.md)
