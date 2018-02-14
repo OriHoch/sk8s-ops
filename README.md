@@ -8,6 +8,9 @@ Available on docker hub in the following variants:
 * `orihoch/sk8s-ops:mongo` - with mongo related CLI tools
 * `orihoch/sk8s-ops:mysql` - with mysql related CLI tools
 * `orihoch/sk8s-ops:postgresql` - with Postgresql tools
+* `orihoch/sk8s-ops:postgresql10` - with Postgresql 10 compatible tools
+
+
 
 The following images based on this image may also be useful:
 * `orihoch/sk8sops:pipelines-google-storage-sync` - sync of data to / from google storage, see [sk8s-pipelines/google-storage-sync/README.md](https://github.com/OriHoch/sk8s-pipelines/blob/master/google-storage-sync/README.md)
