@@ -9,7 +9,7 @@ Available on docker hub in the following variants:
 * `orihoch/sk8s-ops:mysql` - with mysql related CLI tools
 * `orihoch/sk8s-ops:postgresql` - with Postgresql tools
 * `orihoch/sk8s-ops:postgresql10` - with Postgresql 10 compatible tools
-
+* `orihoch/sk8s-ops:node8` - with node JS v8
 
 
 The following images based on this image may also be useful:
